@@ -28,4 +28,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::prefix('prototype')->group(function () {
+    Route::get('/login', function (){
+        return Inertia::render('Prototype/Login');
+    });
+});
+
 require __DIR__.'/auth.php';
