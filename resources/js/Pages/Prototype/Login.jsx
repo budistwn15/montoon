@@ -1,3 +1,5 @@
+import TextInput from "@/Components/TextInput.jsx";
+
 export default function Login(){
     return <div className="mx-auto max-w-screen min-h-screen bg-black text-white md:px-10 px-3">
         <div className="fixed top-[-50px] hidden lg:block">
@@ -20,9 +22,8 @@ export default function Login(){
                         <div className="flex flex-col gap-6">
                             <div>
                                 <label className="text-base block mb-2">Email Address</label>
-                                <input type="email" name="email"
-                                       className="rounded-2xl bg-form-bg py-[13px] px-7 w-full focus:outline-alerange focus:outline-none"
-                                       placeholder="Email Address"/>
+                                <TextInput type="email" name="email"
+                                       placeholder="Email Address" variant="primary"/>
                             </div>
                             <div>
                                 <label className="text-base block mb-2">Password</label>

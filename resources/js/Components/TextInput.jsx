@@ -1,6 +1,16 @@
 import { forwardRef, useEffect, useRef } from 'react';
 
-export default forwardRef(function TextInput({ type = 'text', className = '', isFocused = false, ...props }, ref) {
+export default forwardRef(
+    function TextInput({
+                           type = 'text',
+                           className = '',
+                           value,
+                           defaultValue,
+                           variant,
+                           isFocused = false,
+                            placeholder,
+                            isError,
+                           ...props}, ref) {
     const input = ref ? ref : useRef();
 
     useEffect(() => {
@@ -14,9 +24,9 @@ export default forwardRef(function TextInput({ type = 'text', className = '', is
             {...props}
             type={type}
             className={
-                'border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm ' +
-                className
+                `rounded-2xl bg-form-bg py-[13px] px-7 w-full input-${variant} ${className}`
             }
+            placeholder={placeholder}
             ref={input}
         />
     );
