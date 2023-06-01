@@ -29,17 +29,17 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::prefix('prototype')->name('prototype.')->group(function () {
-    Route::get('/login', function (){
-        return Inertia::render('Prototype/Login');
-    })->name('login');
+    Route::get('/login', fn() => Inertia::render('Prototype/Login'))
+        ->name('login');
 
-    Route::get('/register', function (){
-        return Inertia::render('Prototype/Register');
-    })->name('register');
+    Route::get('/register', fn() => Inertia::render('Prototype/Register'))
+        ->name('register');
 
-    Route::get('/dashboard', function(){
-        return Inertia::render('Prototype/Dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', fn() => Inertia::render('Prototype/Dashboard'))
+        ->name('dashboard');
+
+    Route::get('/subscription-plan', fn() => Inertia::render('Prototype/SubscriptionPlan'))
+        ->name('subscription-plan');
 });
 
 require __DIR__.'/auth.php';
