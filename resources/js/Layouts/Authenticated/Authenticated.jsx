@@ -1,7 +1,10 @@
+import Sidebar from "@/Layouts/Authenticated/Sidebar.jsx";
+
 export default function Authenticated({children}){
     return <>
         <div className="mx-auto max-w-screen hidden lg:block">
             {/*  Start: Sidebar  */}
+            <Sidebar/>
             {/*  End: Sidebar  */}
 
             {/*  Start: Content  */}
