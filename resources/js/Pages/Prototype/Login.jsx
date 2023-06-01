@@ -2,6 +2,7 @@ import TextInput from "@/Components/TextInput.jsx";
 import InputLabel from "@/Components/InputLabel.jsx";
 import PrimaryButton from "@/Components/PrimaryButton.jsx";
 import {Link} from "@inertiajs/react";
+import SecondaryButton from "@/Components/SecondaryButton.jsx";
 
 export default function Login(){
     return <div className="mx-auto max-w-screen min-h-screen bg-black text-white md:px-10 px-3">
@@ -24,12 +25,12 @@ export default function Login(){
                     <form className="w-[370px]">
                         <div className="flex flex-col gap-6">
                             <div>
-                                <InputLabel for="email" value="Email"/>
+                                <InputLabel htmlFor="email" value="Email"/>
                                 <TextInput type="email" name="email"
                                        placeholder="Email Address" variant="primary"/>
                             </div>
                             <div>
-                                <InputLabel for="password" value="Password"/>
+                                <InputLabel htmlFor="password" value="Password"/>
                                 <TextInput type="password" name="password" placeholder="Password" />
                             </div>
                         </div>
@@ -39,11 +40,13 @@ export default function Login(){
                                 Start Watching
                             </span>
                             </PrimaryButton>
-                            <a href="sign_up.html" className="rounded-2xl border border-white py-[13px] text-center">
-                            <span className="text-base text-white">
+                            <Link href={route('prototype.register')}>
+                                <SecondaryButton type="button">
+                                <span className="text-base text-white">
                                 Create New Account
-                            </span>
-                            </a>
+                                </span>
+                                </SecondaryButton>
+                            </Link>
                         </div>
                     </form>
             </div>
