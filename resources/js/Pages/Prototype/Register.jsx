@@ -41,11 +41,13 @@ export default function register(){
                             </div>
                         </div>
                         <div className="grid space-y-[14px] mt-[30px]">
-                            <PrimaryButton type="submit">
-                                <span className="text-base font-semibold">
-                                Sign Up
-                            </span>
-                            </PrimaryButton>
+                            <Link href={route('prototype.dashboard')}>
+                                <PrimaryButton type="submit">
+                                    <span className="text-base font-semibold">
+                                        Sign Up
+                                    </span>
+                                </PrimaryButton>
+                            </Link>
                             <Link href={route('prototype.login')}>
                                 <SecondaryButton>
                                     <span className="text-base text-white">

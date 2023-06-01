@@ -37,16 +37,18 @@ export default function Login(){
                             </div>
                         </div>
                         <div className="grid space-y-[14px] mt-[30px]">
-                            <PrimaryButton type="button">
-                                <span className="text-base font-semibold">
-                                Start Watching
-                            </span>
-                            </PrimaryButton>
+                            <Link href={route('prototype.dashboard')}>
+                                <PrimaryButton type="button">
+                                    <span className="text-base font-semibold">
+                                        Start Watching
+                                    </span>
+                                </PrimaryButton>
+                            </Link>
                             <Link href={route('prototype.register')}>
                                 <SecondaryButton type="button">
-                                <span className="text-base text-white">
-                                Create New Account
-                                </span>
+                                    <span className="text-base text-white">
+                                        Create New Account
+                                    </span>
                                 </SecondaryButton>
                             </Link>
                         </div>
