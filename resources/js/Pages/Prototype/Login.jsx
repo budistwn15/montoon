@@ -1,5 +1,7 @@
 import TextInput from "@/Components/TextInput.jsx";
 import InputLabel from "@/Components/InputLabel.jsx";
+import PrimaryButton from "@/Components/PrimaryButton.jsx";
+import {Link} from "@inertiajs/react";
 
 export default function Login(){
     return <div className="mx-auto max-w-screen min-h-screen bg-black text-white md:px-10 px-3">
@@ -32,11 +34,11 @@ export default function Login(){
                             </div>
                         </div>
                         <div className="grid space-y-[14px] mt-[30px]">
-                            <a href="/" className="rounded-2xl bg-alerange py-[13px] text-center">
-                            <span className="text-base font-semibold">
+                            <PrimaryButton type="button">
+                                <span className="text-base font-semibold">
                                 Start Watching
                             </span>
-                            </a>
+                            </PrimaryButton>
                             <a href="sign_up.html" className="rounded-2xl border border-white py-[13px] text-center">
                             <span className="text-base text-white">
                                 Create New Account
