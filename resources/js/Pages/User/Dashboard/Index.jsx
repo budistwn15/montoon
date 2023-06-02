@@ -4,7 +4,7 @@ import Flickity from "react-flickity-component";
 import FeaturedMovie from "@/Components/FeaturedMovie.jsx";
 import MovieCard from "@/Components/MovieCard.jsx";
 
-export default function Dashboard(){
+export default function Dashboard({ auth }){
 
     const flickityOptions = {
         "cellAlign": "left",
@@ -16,7 +16,9 @@ export default function Dashboard(){
         "draggable": ">1"
     };
 
-    return <Authenticated>
+    return <Authenticated
+        user={auth.user}
+    >
         <Head title="Dashboard">
             <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css" />
         </Head>
