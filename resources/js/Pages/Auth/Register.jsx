@@ -2,7 +2,8 @@ import InputLabel from "@/Components/InputLabel.jsx";
 import {Input} from "postcss";
 import TextInput from "@/Components/TextInput.jsx";
 import PrimaryButton from "@/Components/PrimaryButton.jsx";
-import { Head, Link, useForm } from '@inertiajs/react';
+import { Head, Link } from '@inertiajs/react';
+import { useForm } from 'laravel-precognition-react-inertia';
 import InputError from '@/Components/InputError';
 import GuestLayout from '@/Layouts/GuestLayout';
 import SecondaryButton from "@/Components/SecondaryButton.jsx";
@@ -10,7 +11,16 @@ import { useEffect } from 'react';
 
 export default function register(){
 
-    const {data, setData, post, processing, errors, reset} = useForm({
+    // Before precognition
+    // const {data, setData, post, processing, errors, reset} = useForm({
+    //     name: '',
+    //     email: '',
+    //     password: '',
+    //     password_confirmation: '',
+    // });
+
+    // After precognition
+    const form = useForm('post', route('register'),{
         name: '',
         email: '',
         password: '',
@@ -26,7 +36,9 @@ export default function register(){
     const submit = (e) => {
         e.preventDefault();
 
-        post(route('register'));
+        form.submit({
+            onSuccess: () => form.reset(),
+        });
     }
 
     return (<>
@@ -57,14 +69,14 @@ export default function register(){
                                         type="text"
                                         name="name"
                                         placeholder="Your fullname..."
-                                        value={data.name}
+                                        value={form.data.name}
                                         autoComplete={'name'}
                                         isFocused={true}
-                                        handleChange={(e) => setData('name', e.target.value)}
+                                        handleChange={(e) => form.setData('name', e.target.value)}
                                         required
                                     />
 
-                                    <InputError message={errors.name} className="mt-2"/>
+                                    <InputError message={form.errors.name} className="mt-2"/>
                                 </div>
                                 <div>
                                     <InputLabel htmlFor="email" value="Email"/>
@@ -73,12 +85,15 @@ export default function register(){
                                         type="email"
                                         name="email"
                                         placeholder="Your email address..."
-                                        value={data.email}
+                                        value={form.data.email}
                                         autoComplete={'username'}
-                                        handleChange={(e) => setData('email', e.target.value)}
+                                        handleChange={(e) => form.setData('email', e.target.value)}
                                         required
+                                        onBlur={() => form.validate('email')}
                                     />
-                                    <InputError message={errors.email} className="mt-2"/>
+                                    {form.invalid('email') &&
+                                        <InputError message={form.errors.email} className="mt-2"/>
+                                    }
                                 </div>
                                 <div>
                                     <InputLabel htmlFor="password" value="Password"/>
@@ -87,12 +102,12 @@ export default function register(){
                                         name="password"
                                         placeholder="Your password..."
                                         id="password"
-                                        value={data.password}
+                                        value={form.data.password}
                                         autoComplete={'new-password'}
-                                        handleChange={(e) => setData('password', e.target.value)}
+                                        handleChange={(e) => form.setData('password', e.target.value)}
                                         required
                                     />
-                                    <InputError message={errors.password} className="mt-2"/>
+                                    <InputError message={form.errors.password} className="mt-2"/>
                                 </div>
                                 <div>
                                     <InputLabel htmlFor="password_confirmation" value="Password"/>
@@ -101,16 +116,16 @@ export default function register(){
                                         name="password_confirmation"
                                         placeholder="Your password..."
                                         id="password_confirmation"
-                                        value={data.password_confirmation}
+                                        value={form.data.password_confirmation}
                                         autoComplete={'new-password'}
-                                        handleChange={(e) => setData('password_confirmation', e.target.value)}
+                                        handleChange={(e) => form.setData('password_confirmation', e.target.value)}
                                         required
                                     />
-                                    <InputError message={errors.password_confirmation} className="mt-2"/>
+                                    <InputError message={form.errors.password_confirmation} className="mt-2"/>
                                 </div>
                             </div>
                             <div className="grid space-y-[14px] mt-[30px]">
-                                <PrimaryButton type="submit" disabled={processing}>
+                                <PrimaryButton type="submit" disabled={form.processing}>
                                     <span className="text-base font-semibold">
                                         Sign Up
                                     </span>
