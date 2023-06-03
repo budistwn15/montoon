@@ -9,7 +9,7 @@ export default function Sidebar(){
             <div className="links flex flex-col mt-[60px] h-full gap-[50px]">
                 <div>
                     <div className="text-gray-1 text-sm mb-4">Menu</div>
-                    <Link href={route('prototype.dashboard')} className="side-link active">
+                    <Link href={route('user.dashboard.index')} className="side-link active">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
                              xmlns="http://www.w3.org/2000/svg">
                             <g id="Iconly/Bulk/Home">
@@ -48,7 +48,7 @@ export default function Sidebar(){
                 </div>
                 <div>
                     <div className="text-gray-1 side-link mb-4">Others</div>
-                    <Link href={route('prototype.subscription-plan')} className="side-link">
+                    <Link href={route('user.dashboard.subscription-plan.index')} className="side-link">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
                              xmlns="http://www.w3.org/2000/svg">
                             <path fillRule="evenodd" clipRule="evenodd"
