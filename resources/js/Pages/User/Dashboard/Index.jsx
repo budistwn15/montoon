@@ -4,7 +4,7 @@ import Flickity from "react-flickity-component";
 import FeaturedMovie from "@/Components/FeaturedMovie.jsx";
 import MovieCard from "@/Components/MovieCard.jsx";
 
-export default function Dashboard({ auth }){
+export default function Dashboard({ auth, featuredMovies, movies }){
 
     const flickityOptions = {
         "cellAlign": "left",
@@ -27,14 +27,14 @@ export default function Dashboard({ auth }){
             <div className="font-semibold text-[22px] text-black mb-4">Featured Movies</div>
             <Flickity className="gap-[30px]" options={flickityOptions}>
 
-                {[1,2,3,4].map((i) => (
+                {featuredMovies.map((featuredMovie) => (
                     <FeaturedMovie
-                        key={i}
-                        slug={`the-batman-in-love`}
-                        name={`The Batman in Love ${i}`}
-                        category={`Comedy`}
-                        thumbnail={`https://picsum.photos/id/1/300/300`}
-                        rating={i + 1}
+                        key={featuredMovie.id}
+                        slug={featuredMovie.slug}
+                        name={featuredMovie.name}
+                        category={featuredMovie.category}
+                        thumbnail={featuredMovie.thumbnail}
+                        rating={featuredMovie.rating}
                     />
                 ))}
 

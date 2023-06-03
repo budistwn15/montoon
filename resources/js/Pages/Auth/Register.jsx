@@ -7,7 +7,6 @@ import { useForm } from 'laravel-precognition-react-inertia';
 import InputError from '@/Components/InputError';
 import GuestLayout from '@/Layouts/GuestLayout';
 import SecondaryButton from "@/Components/SecondaryButton.jsx";
-import { useEffect } from 'react';
 
 export default function register(){
 
@@ -26,12 +25,6 @@ export default function register(){
         password: '',
         password_confirmation: '',
     });
-
-    useEffect(() => {
-        return  () => {
-            reset('password','password_confirmation');
-        };
-    },[]);
 
     const submit = (e) => {
         e.preventDefault();

@@ -16,7 +16,7 @@ class MovieSeeder extends Seeder
                 'category' => 'Drama',
                 'video_url' => 'https://www.youtube.com/watch?v=6hB3S9bIaco',
                 'thumbnail' => 'https://i.ytimg.com/vi/6hB3S9bIaco/maxresdefault.jpg',
-                'rating' => 9.3,
+                'rating' => 5,
                 'is_featured' => true,
             ],
             [
@@ -25,7 +25,7 @@ class MovieSeeder extends Seeder
                 'category' => 'Drama',
                 'video_url' => 'https://www.youtube.com/watch?v=sY1S34973zA',
                 'thumbnail' => 'https://i.ytimg.com/vi/sY1S34973zA/maxresdefault.jpg',
-                'rating' => 9.2,
+                'rating' => 4.5,
                 'is_featured' => false,
             ],
             [
@@ -34,7 +34,7 @@ class MovieSeeder extends Seeder
                 'category' => 'Action',
                 'video_url' => 'https://www.youtube.com/watch?v=EXeTwQWrcwY',
                 'thumbnail' => 'https://i.ytimg.com/vi/EXeTwQWrcwY/maxresdefault.jpg',
-                'rating' => 9.0,
+                'rating' => 3,
                 'is_featured' => false,
             ]
         ];
