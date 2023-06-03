@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class UserSubscription extends Model
 {
     use SoftDeletes;
-    protected $fillable = ['user_id','subscription_plan_id','start_date','end_date','status'];
+    protected $fillable = ['user_id','subscription_plan_id','price','expired_date','payment_status'];
 
     public function subscriptionPlan(): BelongsTo
     {

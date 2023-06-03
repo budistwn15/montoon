@@ -1,8 +1,18 @@
 import Authenticated from "@/Layouts/Authenticated/Authenticated.jsx";
 import {Head} from "@inertiajs/react";
 import SubscriptionCard from "@/Components/SubscriptionCard.jsx";
+import { router } from '@inertiajs/react'
 
 export default function Index({auth, subscriptionPlans}){
+
+    const selectSubscription = id => {
+        router.post(
+            route('user.dashboard.subscription-plan.subscribe',{
+                subscriptionPlan: id
+            })
+        );
+    }
+
     return (
         <>
             <Head title={`Payment`}/>
@@ -26,6 +36,7 @@ export default function Index({auth, subscriptionPlans}){
                                         durationInMonth={plan.active_period_in_months}
                                         features={JSON.parse(plan.features)}
                                         isPremium={plan.name === 'Premium'}
+                                        onSelectSubscription={() => selectSubscription(plan.id)}
                                     />
                                 ))}
                         </div>

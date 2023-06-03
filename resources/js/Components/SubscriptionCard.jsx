@@ -60,7 +60,7 @@ export default function SubscriptionCard(
                 <div className="flex flex-col gap-4">
                     {featureItems}
                 </div>
-                <div>
+                <div onClick={onSelectSubscription}>
                     <PrimaryButton type={`button`}>
                         <span className="text-base font-semibold">Subscribe Now</span>
                     </PrimaryButton>
