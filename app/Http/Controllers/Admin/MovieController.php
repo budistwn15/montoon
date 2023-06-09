@@ -10,4 +10,9 @@ class MovieController extends Controller
     {
         return inertia('Admin/Movie/Index');
     }
+
+    public function create()
+    {
+        return inertia('Admin/Movie/Create');
+    }
 }
