@@ -1,11 +1,9 @@
 import InputLabel from "@/Components/InputLabel.jsx";
-import {Input} from "postcss";
 import TextInput from "@/Components/TextInput.jsx";
 import PrimaryButton from "@/Components/PrimaryButton.jsx";
 import { Head, Link } from '@inertiajs/react';
 import { useForm } from 'laravel-precognition-react-inertia';
 import InputError from '@/Components/InputError';
-import GuestLayout from '@/Layouts/GuestLayout';
 import SecondaryButton from "@/Components/SecondaryButton.jsx";
 
 export default function register(){
