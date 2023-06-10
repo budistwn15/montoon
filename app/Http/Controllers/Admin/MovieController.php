@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MovieRequest;
+use App\Models\Movie;
 use Illuminate\Foundation\Http\Middleware\HandlePrecognitiveRequests;
+use Storage;
 
 class MovieController extends Controller
 {
@@ -25,6 +27,14 @@ class MovieController extends Controller
 
     public function store(MovieRequest $request)
     {
+        $data = $request->validated();
+        $data['thumbnail'] = Storage::disk('public')->put('movies', $request->file('thumbnail'));
+        $data['slug'] = str($data['name'])->slug();
+        Movie::create($data);
 
+        return redirect(route('admin.dashboard.movie.index'))->with([
+            'message' => 'Movie created successfully',
+            'type' => 'success'
+        ]);
     }
 }
