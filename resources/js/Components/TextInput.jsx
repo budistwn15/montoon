@@ -49,7 +49,7 @@ const TextInput = forwardRef(
 );
 
 TextInput.propTypes = {
-    type: PropTypes.oneOf(['text', 'email', 'password', 'file']),
+    type: PropTypes.oneOf(['text', 'email', 'password', 'file', 'number','url']),
     name: PropTypes.string,
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     defaultValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),

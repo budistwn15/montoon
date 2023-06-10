@@ -95,5 +95,6 @@ export const UserOthers = [
         ),
         text: 'Logout',
         method: 'post',
+        as: 'button',
     },
 ];

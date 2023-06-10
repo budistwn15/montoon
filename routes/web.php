@@ -6,6 +6,7 @@ use App\Http\Controllers\User\MovieController;
 use App\Http\Controllers\Admin\MovieController as AdminMovieController;
 use App\Http\Controllers\User\SubscriptionPlanController;
 use Illuminate\Foundation\Application;
+use Illuminate\Foundation\Http\Middleware\HandlePrecognitiveRequests;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 

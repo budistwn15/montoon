@@ -44,7 +44,6 @@ export default function Create({auth}){
                            isFocused={true}
                            handleChange={(e) => form.setData('name', e.target.value)}
                            variant="primary-outline"
-                           required
                        />
                        <InputError message={form.errors.name} className="mt-2"/>
                    </div>
@@ -59,7 +58,6 @@ export default function Create({auth}){
                            autoComplete={'category'}
                            handleChange={(e) => form.setData('category', e.target.value)}
                            variant="primary-outline"
-                           required
                        />
                        <InputError message={form.errors.category} className="mt-2"/>
                    </div>
@@ -67,16 +65,18 @@ export default function Create({auth}){
                        <InputLabel htmlFor="video_url" value="Video URL"/>
                        <TextInput
                            id="video_url"
-                           type="url"
+                           type="text"
                            name="video_url"
                            placeholder="Enter the video url..."
                            value={form.data.video_url}
                            autoComplete={'video_url'}
                            handleChange={(e) => form.setData('video_url', e.target.value)}
                            variant="primary-outline"
-                           required
+                           onBlur={() => form.validate('email')}
                        />
-                       <InputError message={form.errors.video_url} className="mt-2"/>
+                       {form.invalid('video_url') &&
+                           <InputError message={form.errors.video_url} className="mt-2"/>
+                       }
                    </div>
                    <div className='mt-6'>
                        <InputLabel htmlFor="thumbnail" value="Thumbnail"/>
@@ -89,7 +89,6 @@ export default function Create({auth}){
                            autoComplete={'thumbnail'}
                            handleChange={(e) => form.setData('thumbnail', e.target.type === "file" ? e.target.files[0] : e.target.value)}
                            variant="primary-outline"
-                           required
                        />
                        <InputError message={form.errors.thumbnail} className="mt-2"/>
                    </div>
@@ -105,7 +104,6 @@ export default function Create({auth}){
                            handleChange={(e) => form.setData('rating', e.target.value)}
                            variant="primary-outline"
                            min={0}
-                           required
                        />
                        <InputError message={form.errors.rating} className="mt-2"/>
                    </div>
